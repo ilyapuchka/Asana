@@ -32,8 +32,10 @@ struct RepoSearchQuery {
 }
 
 struct RepoSearchResult {
+    typealias Pages = [Pagination: Pagination.Handle]
+    
     let repos: [Repo]?
-    let pages: [Pagination: Pagination.Handle]?
+    let pages: Pages?
     let error: Error?
 
     enum Pagination: String {
@@ -45,6 +47,14 @@ struct RepoSearchResult {
         self.repos = repos
         self.pages = pages
         self.error = error
+    }
+    
+    static func +(lhs: RepoSearchResult, rhs: RepoSearchResult) -> RepoSearchResult {
+        return RepoSearchResult(
+            repos: (lhs.repos ?? []) + (rhs.repos ?? []),
+            pages: lhs.pages?.merging(rhs.pages ?? [:], uniquingKeysWith: { $1 }),
+            error: lhs.error ?? rhs.error
+        )
     }
 }
 

@@ -18,6 +18,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="IbH-Z7-RaP">
+                                <rect key="frame" x="177.5" y="323" width="20" height="20"/>
+                            </activityIndicatorView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fy1-fb-uwx">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -30,14 +33,17 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fy1-fb-uwx" secondAttribute="trailing" id="5c1-4V-uwR"/>
+                            <constraint firstItem="IbH-Z7-RaP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="G10-VS-MXN"/>
                             <constraint firstItem="fy1-fb-uwx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Ym0-wh-qar"/>
                             <constraint firstItem="fy1-fb-uwx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="bk3-Y2-jCN"/>
+                            <constraint firstItem="IbH-Z7-RaP" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="hZD-Cn-6dX"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="fy1-fb-uwx" secondAttribute="bottom" id="r9J-Sx-NVv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="Bo4-QL-QvR"/>
                     <connections>
+                        <outlet property="loadingView" destination="IbH-Z7-RaP" id="QXN-PX-lWj"/>
                         <outlet property="tableView" destination="fy1-fb-uwx" id="JmC-EK-O2Y"/>
                     </connections>
                 </viewController>

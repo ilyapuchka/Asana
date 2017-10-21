@@ -53,8 +53,8 @@ class APIRepoSearchRepository: RepoSearchRepository {
 
 extension RepoSearchResult {
     
-    init(response: HTTPURLResponse?, repos: [Repo]?, error: Error?) {
-        self.repos = repos
+    init(response: HTTPURLResponse?, repos: Repos?, error: Error?) {
+        self.repos = repos?.items
         self.error = error
         
         var _pages = [Pagination: String]()
@@ -66,4 +66,8 @@ extension RepoSearchResult {
         self.pages = _pages
     }
     
+}
+
+struct Repos: Codable {
+    let items: [Repo]
 }
