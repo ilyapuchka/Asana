@@ -10,6 +10,7 @@ import UIKit
 
 class RepositoriesListController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var loadingView: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView! {
         didSet {
@@ -24,22 +25,11 @@ class RepositoriesListController: UIViewController, UITableViewDelegate, UITable
         didSet {
             if model.isLoading {
                 loadingView?.startAnimating()
-                tableView?.isHidden = true
             } else {
                 loadingView?.stopAnimating()
-                tableView?.isHidden = false
-                tableView?.reloadData()
             }
+            tableView?.reloadData()
         }
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        model.isLoading = true
-        dataProvider?.getRepositories(query: RepoSearchQuery(query: "Tetris"), completion: { [weak self] (repos, error) in
-            self?.model = repos ?? RepositoriesListViewModel()
-        })
     }
 
 }
@@ -47,6 +37,9 @@ class RepositoriesListController: UIViewController, UITableViewDelegate, UITable
 extension RepositoriesListController: ListView {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard !model.isLoading else {
+            return 0
+        }
         return numberOfRows()
     }
     
@@ -56,6 +49,23 @@ extension RepositoriesListController: ListView {
 
 }
 
+extension RepositoriesListController: UISearchBarDelegate {
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
+
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        guard let query = searchBar.text else { return }
+        model.isLoading = true
+        dataProvider?.getRepositories(query: RepoSearchQuery(query: query), completion: { [weak self] (repos, error) in
+            self?.model = repos ?? RepositoriesListViewModel()
+        })
+    }
+    
+}
+
 struct RepositoriesListViewModel: ListViewModel {
     typealias Item = RepositoriesListCellViewModel
     typealias Cell = RepositoriesListCell
@@ -63,6 +73,7 @@ struct RepositoriesListViewModel: ListViewModel {
     let repos: [RepositoriesListCellViewModel]
     let pages: RepoSearchResult.Pages?
     var isLoading: Bool = false
+    var isLoadingMore: Bool = false
     
     init(repos: RepoSearchResult? = nil) {
         self.repos = repos?.repos?.map(RepositoriesListCellViewModel.init(repo:)) ?? []
@@ -100,7 +111,7 @@ class RepositoriesListDataProvider {
         }
     }
     
-    func getRepositories(completion: @escaping (RepositoriesListViewModel?, Error?) -> Void) {
+    func getMoreRepositories(completion: @escaping (RepositoriesListViewModel?, Error?) -> Void) {
         guard let result = result else {
             DispatchQueue.main.async {
                 completion(nil, nil)
