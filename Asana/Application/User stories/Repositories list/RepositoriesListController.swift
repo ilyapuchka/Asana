@@ -60,7 +60,9 @@ extension RepositoriesListController: UISearchBarDelegate {
         guard let query = searchBar.text else { return }
         model.isLoading = true
         dataProvider?.getRepositories(query: RepoSearchQuery(query: query), completion: { [weak self] (repos, error) in
-            self?.model = repos ?? RepositoriesListViewModel()
+            if let repos = repos {
+                self?.model = repos
+            }
         })
     }
     
@@ -89,6 +91,10 @@ struct RepositoriesListViewModel: ListViewModel {
         return repos[index]
     }
 
+    var isEmpty: Bool {
+        return repos.isEmpty
+    }
+    
 }
 
 class RepositoriesListDataProvider {
@@ -101,12 +107,13 @@ class RepositoriesListDataProvider {
     }
     
     func getRepositories(query: RepoSearchQuery, completion: @escaping (RepositoriesListViewModel?, Error?) -> Void) {
-        searchService.getRepositories(query: query) { (result) in
+        searchService.getRepositories(query: query) { [weak self] (result) in
             guard result.error == nil else {
                 completion(nil, result.error)
                 return
             }
             
+            self?.result = result
             completion(RepositoriesListViewModel(repos: result), nil)
         }
     }
@@ -118,13 +125,13 @@ class RepositoriesListDataProvider {
             }
             return
         }
-        searchService.getMoreRepositories(result: result) { moreResults in
-            guard result.error == nil else {
-                completion(nil, result.error)
+        searchService.getMoreRepositories(result: result) { [weak self] moreResults in
+            guard moreResults.error == nil else {
+                completion(nil, moreResults.error)
                 return
             }
-            
-            completion(RepositoriesListViewModel(repos: result + moreResults), nil)
+            self?.result = result
+            completion(RepositoriesListViewModel(repos: result + moreResults), moreResults.error)
         }
     }
     
