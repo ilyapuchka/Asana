@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Rswift
 
 class RootViewController: UIViewController {
 

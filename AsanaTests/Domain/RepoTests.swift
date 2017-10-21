@@ -8,13 +8,12 @@
 
 import XCTest
 @testable import Asana
+import Rswift
 
 class RepoTests: XCTestCase {
     
     func testRepoIsCodable() throws {
-        let bundle = Bundle(for: RepoTests.self)
-        let path = bundle.path(forResource: "Repo", ofType: "json")!
-        let data = FileManager.default.contents(atPath: path)!
+        let data = try Data(resource: R.file.repoJson)
         let repo = try JSONDecoder().decode(Repo.self, from: data)
         
         XCTAssertEqual(repo.id, 3081286)
