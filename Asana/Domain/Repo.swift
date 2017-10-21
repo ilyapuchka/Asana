@@ -8,4 +8,35 @@
 
 import Foundation
 
-struct Repo: Codable {}
+struct Repo: Codable {
+    
+    let id: Int
+    let name: String
+    let fullName: String
+    let description: String
+    let forksCount: Int
+    
+    struct Owner: Codable {
+        
+        let id: Int
+        let avatarURL: URL
+        let login: String
+        
+        enum CodingKeys: String, CodingKey {
+            case id
+            case avatarURL = "avatar_url"
+            case login
+        }
+    }
+
+    let owner: Owner
+
+    enum CodingKeys: String, CodingKey {
+        case id
+        case name
+        case fullName = "full_name"
+        case owner
+        case description
+        case forksCount = "forks_count"
+    }
+}

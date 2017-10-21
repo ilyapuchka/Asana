@@ -22,6 +22,9 @@
 		63B7B1D11F9B4ECD00E8FC72 /* RequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B7B1D01F9B4ECD00E8FC72 /* RequestBuilder.swift */; };
 		63B7B1D31F9B4F3300E8FC72 /* NetworkSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B7B1D21F9B4F3300E8FC72 /* NetworkSession.swift */; };
 		63B7B1D61F9B514700E8FC72 /* APIRepoSearchRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B7B1D51F9B514700E8FC72 /* APIRepoSearchRepositoryTests.swift */; };
+		63B7B1D81F9B549800E8FC72 /* RepoOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B7B1D71F9B549700E8FC72 /* RepoOwner.swift */; };
+		63B7B1DA1F9B55EF00E8FC72 /* Repo.json in Resources */ = {isa = PBXBuildFile; fileRef = 63B7B1D91F9B55EF00E8FC72 /* Repo.json */; };
+		63B7B1DE1F9B561D00E8FC72 /* RepoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B7B1DD1F9B561D00E8FC72 /* RepoTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +57,9 @@
 		63B7B1D01F9B4ECD00E8FC72 /* RequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestBuilder.swift; sourceTree = "<group>"; };
 		63B7B1D21F9B4F3300E8FC72 /* NetworkSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSession.swift; sourceTree = "<group>"; };
 		63B7B1D51F9B514700E8FC72 /* APIRepoSearchRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRepoSearchRepositoryTests.swift; sourceTree = "<group>"; };
+		63B7B1D71F9B549700E8FC72 /* RepoOwner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoOwner.swift; sourceTree = "<group>"; };
+		63B7B1D91F9B55EF00E8FC72 /* Repo.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Repo.json; sourceTree = "<group>"; };
+		63B7B1DD1F9B561D00E8FC72 /* RepoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +114,7 @@
 		6373149C1F9B48B800B18FE0 /* AsanaTests */ = {
 			isa = PBXGroup;
 			children = (
+				63B7B1DC1F9B560F00E8FC72 /* Domain */,
 				63B7B1D41F9B512C00E8FC72 /* Data Access Layer */,
 				6373149F1F9B48B800B18FE0 /* Info.plist */,
 			);
@@ -147,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				63B7B1C81F9B4C7200E8FC72 /* Repo.swift */,
+				63B7B1D71F9B549700E8FC72 /* RepoOwner.swift */,
 				63B7B1CA1F9B4C9700E8FC72 /* RepoSearchService.swift */,
 				63B7B1CC1F9B4CAE00E8FC72 /* RepoSearchRepository.swift */,
 			);
@@ -169,6 +177,23 @@
 				63B7B1D51F9B514700E8FC72 /* APIRepoSearchRepositoryTests.swift */,
 			);
 			path = "Data Access Layer";
+			sourceTree = "<group>";
+		};
+		63B7B1DB1F9B55F600E8FC72 /* Payloads */ = {
+			isa = PBXGroup;
+			children = (
+				63B7B1D91F9B55EF00E8FC72 /* Repo.json */,
+			);
+			path = Payloads;
+			sourceTree = "<group>";
+		};
+		63B7B1DC1F9B560F00E8FC72 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				63B7B1DB1F9B55F600E8FC72 /* Payloads */,
+				63B7B1DD1F9B561D00E8FC72 /* RepoTests.swift */,
+			);
+			path = Domain;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,6 +291,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63B7B1DA1F9B55EF00E8FC72 /* Repo.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +310,7 @@
 				63B7B1CB1F9B4C9700E8FC72 /* RepoSearchService.swift in Sources */,
 				63B7B1CD1F9B4CAE00E8FC72 /* RepoSearchRepository.swift in Sources */,
 				63B7B1C51F9B4B8900E8FC72 /* RootViewController.swift in Sources */,
+				63B7B1D81F9B549800E8FC72 /* RepoOwner.swift in Sources */,
 				63B7B1CF1F9B4CDF00E8FC72 /* APIRepoSearchRepository.swift in Sources */,
 				637314891F9B48B800B18FE0 /* AppDelegate.swift in Sources */,
 			);
@@ -294,6 +321,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				63B7B1D61F9B514700E8FC72 /* APIRepoSearchRepositoryTests.swift in Sources */,
+				63B7B1DE1F9B561D00E8FC72 /* RepoTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
