@@ -34,10 +34,36 @@ class APIRepoSearchRepository: RepoSearchRepository {
         }
     }
     
-    func getRepositories(url: URL, completion: @escaping (RepoSearchResult) -> Void) {
+    func getRepositories(pageHandle: RepoSearchResult.Pagination.Handle, completion: @escaping (RepoSearchResult) -> Void) {
+        guard let url = URL(string: pageHandle) else {
+            DispatchQueue.main.async {
+                let error = URLError(URLError.badURL, userInfo: [
+                    NSURLErrorFailingURLStringErrorKey: pageHandle
+                    ])
+                completion(RepoSearchResult(repos: nil, pages: nil, error: error))
+            }
+            return
+        }
         networkSession.request(.init(url: url)) { (repos, _, response, error) in
             completion(RepoSearchResult(response: response, repos: repos, error: error))
         }
     }
 
+}
+
+extension RepoSearchResult {
+    
+    init(response: HTTPURLResponse?, repos: [Repo]?, error: Error?) {
+        self.repos = repos
+        self.error = error
+        
+        var _pages = [Pagination: String]()
+        response?.links.forEach({ (key, value) in
+            if let pageKey = Pagination(rawValue: key) {
+                _pages[pageKey] = value.absoluteString
+            }
+        })
+        self.pages = _pages
+    }
+    
 }

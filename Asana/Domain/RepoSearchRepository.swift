@@ -32,38 +32,23 @@ struct RepoSearchQuery {
 }
 
 struct RepoSearchResult {
-    let response: HTTPURLResponse?
     let repos: [Repo]?
+    let pages: [Pagination: Pagination.Handle]?
     let error: Error?
-    
+
     enum Pagination: String {
+        typealias Handle = String
         case next, last
     }
-
-    let pages: [Pagination: URL]
-
-    init(response: HTTPURLResponse?, repos: [Repo]?, error: Error?) {
-        self.response = response
+    
+    init(repos: [Repo]?, pages: [Pagination: Pagination.Handle]?, error: Error?) {
         self.repos = repos
+        self.pages = pages
         self.error = error
-        
-        var _pages = [Pagination: URL]()
-        self.response?.links.forEach({ (key, value) in
-            if let pageKey = Pagination(rawValue: key) {
-                _pages[pageKey] = value
-            }
-        })
-        self.pages = _pages
-    }
-
-    var isLastPage: Bool? {
-        guard let currentURL = response?.url else { return nil }
-        guard let lastPage = pages[.last] else { return nil }
-        return lastPage == currentURL
     }
 }
 
 protocol RepoSearchRepository {
     func getRepositories(query: RepoSearchQuery, completion: @escaping (RepoSearchResult) -> Void)
-    func getRepositories(url: URL, completion: @escaping (RepoSearchResult) -> Void)
+    func getRepositories(pageHandle: RepoSearchResult.Pagination.Handle, completion: @escaping (RepoSearchResult) -> Void)
 }
