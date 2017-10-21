@@ -19,6 +19,9 @@
 		63B7B1CB1F9B4C9700E8FC72 /* RepoSearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B7B1CA1F9B4C9700E8FC72 /* RepoSearchService.swift */; };
 		63B7B1CD1F9B4CAE00E8FC72 /* RepoSearchRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B7B1CC1F9B4CAE00E8FC72 /* RepoSearchRepository.swift */; };
 		63B7B1CF1F9B4CDF00E8FC72 /* APIRepoSearchRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B7B1CE1F9B4CDF00E8FC72 /* APIRepoSearchRepository.swift */; };
+		63B7B1D11F9B4ECD00E8FC72 /* RequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B7B1D01F9B4ECD00E8FC72 /* RequestBuilder.swift */; };
+		63B7B1D31F9B4F3300E8FC72 /* NetworkSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B7B1D21F9B4F3300E8FC72 /* NetworkSession.swift */; };
+		63B7B1D61F9B514700E8FC72 /* APIRepoSearchRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B7B1D51F9B514700E8FC72 /* APIRepoSearchRepositoryTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +51,9 @@
 		63B7B1CA1F9B4C9700E8FC72 /* RepoSearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoSearchService.swift; sourceTree = "<group>"; };
 		63B7B1CC1F9B4CAE00E8FC72 /* RepoSearchRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoSearchRepository.swift; sourceTree = "<group>"; };
 		63B7B1CE1F9B4CDF00E8FC72 /* APIRepoSearchRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRepoSearchRepository.swift; sourceTree = "<group>"; };
+		63B7B1D01F9B4ECD00E8FC72 /* RequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestBuilder.swift; sourceTree = "<group>"; };
+		63B7B1D21F9B4F3300E8FC72 /* NetworkSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSession.swift; sourceTree = "<group>"; };
+		63B7B1D51F9B514700E8FC72 /* APIRepoSearchRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRepoSearchRepositoryTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +108,7 @@
 		6373149C1F9B48B800B18FE0 /* AsanaTests */ = {
 			isa = PBXGroup;
 			children = (
+				63B7B1D41F9B512C00E8FC72 /* Data Access Layer */,
 				6373149F1F9B48B800B18FE0 /* Info.plist */,
 			);
 			path = AsanaTests;
@@ -150,6 +157,16 @@
 			isa = PBXGroup;
 			children = (
 				63B7B1CE1F9B4CDF00E8FC72 /* APIRepoSearchRepository.swift */,
+				63B7B1D01F9B4ECD00E8FC72 /* RequestBuilder.swift */,
+				63B7B1D21F9B4F3300E8FC72 /* NetworkSession.swift */,
+			);
+			path = "Data Access Layer";
+			sourceTree = "<group>";
+		};
+		63B7B1D41F9B512C00E8FC72 /* Data Access Layer */ = {
+			isa = PBXGroup;
+			children = (
+				63B7B1D51F9B514700E8FC72 /* APIRepoSearchRepositoryTests.swift */,
 			);
 			path = "Data Access Layer";
 			sourceTree = "<group>";
@@ -208,6 +225,7 @@
 					};
 					637314981F9B48B800B18FE0 = {
 						CreatedOnToolsVersion = 9.0.1;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 637314841F9B48B800B18FE0;
 					};
@@ -259,8 +277,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				6373148B1F9B48B800B18FE0 /* RepositoriesListController.swift in Sources */,
+				63B7B1D31F9B4F3300E8FC72 /* NetworkSession.swift in Sources */,
 				637314AC1F9B49E000B18FE0 /* RepositoriesListNavigationController.swift in Sources */,
 				63B7B1C91F9B4C7200E8FC72 /* Repo.swift in Sources */,
+				63B7B1D11F9B4ECD00E8FC72 /* RequestBuilder.swift in Sources */,
 				63B7B1CB1F9B4C9700E8FC72 /* RepoSearchService.swift in Sources */,
 				63B7B1CD1F9B4CAE00E8FC72 /* RepoSearchRepository.swift in Sources */,
 				63B7B1C51F9B4B8900E8FC72 /* RootViewController.swift in Sources */,
@@ -273,6 +293,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63B7B1D61F9B514700E8FC72 /* APIRepoSearchRepositoryTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,12 +471,14 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4LTD6LARKC;
 				INFOPLIST_FILE = AsanaTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ilya.puchka.AsanaTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Asana.app/Asana";
@@ -467,6 +490,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4LTD6LARKC;
 				INFOPLIST_FILE = AsanaTests/Info.plist;
