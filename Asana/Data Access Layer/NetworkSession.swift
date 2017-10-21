@@ -14,7 +14,11 @@ protocol NetworkSession {
 
 extension URLSession: NetworkSession {
     func request<T: Codable>(_ request: URLRequest, completion: @escaping (T?, Data?, HTTPURLResponse?, Error?) -> Void) {
-        dataTask(with: request) { (data, response, error) in
+        dataTask(with: request, completionHandler: dataTaskCompletionHandler(completion)).resume()
+    }
+    
+    func dataTaskCompletionHandler<T: Codable>(_ completion: @escaping (T?, Data?, HTTPURLResponse?, Error?) -> Void) ->(Data?, URLResponse?, Error?) -> Void {
+        return { (data, response, error) in
             if let data = data {
                 do {
                     let decoded = try JSONDecoder().decode(T.self, from: data)
@@ -31,6 +35,6 @@ extension URLSession: NetworkSession {
                     completion(nil, data, response as? HTTPURLResponse, error)
                 }
             }
-            }.resume()
+        }
     }
 }

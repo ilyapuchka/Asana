@@ -27,6 +27,9 @@
 		63B7B1DE1F9B561D00E8FC72 /* RepoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B7B1DD1F9B561D00E8FC72 /* RepoTests.swift */; };
 		63B7B1E01F9B58B800E8FC72 /* WebLinking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B7B1DF1F9B58B800E8FC72 /* WebLinking.swift */; };
 		63B7B1E21F9B5B7100E8FC72 /* WebLinkingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B7B1E11F9B5B7100E8FC72 /* WebLinkingTests.swift */; };
+		63B7B1E51F9B65B300E8FC72 /* FileNetworkSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B7B1E41F9B65B300E8FC72 /* FileNetworkSession.swift */; };
+		63B7B1E71F9B67E400E8FC72 /* NetworkSessionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B7B1E61F9B67E400E8FC72 /* NetworkSessionTests.swift */; };
+		63B7B1E91F9B6A9000E8FC72 /* Difference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B7B1E81F9B6A9000E8FC72 /* Difference.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +67,9 @@
 		63B7B1DD1F9B561D00E8FC72 /* RepoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoTests.swift; sourceTree = "<group>"; };
 		63B7B1DF1F9B58B800E8FC72 /* WebLinking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebLinking.swift; sourceTree = "<group>"; };
 		63B7B1E11F9B5B7100E8FC72 /* WebLinkingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebLinkingTests.swift; sourceTree = "<group>"; };
+		63B7B1E41F9B65B300E8FC72 /* FileNetworkSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileNetworkSession.swift; sourceTree = "<group>"; };
+		63B7B1E61F9B67E400E8FC72 /* NetworkSessionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSessionTests.swift; sourceTree = "<group>"; };
+		63B7B1E81F9B6A9000E8FC72 /* Difference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Difference.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +187,8 @@
 			children = (
 				63B7B1D51F9B514700E8FC72 /* APIRepoSearchRepositoryTests.swift */,
 				63B7B1E11F9B5B7100E8FC72 /* WebLinkingTests.swift */,
+				63B7B1E61F9B67E400E8FC72 /* NetworkSessionTests.swift */,
+				63B7B1E31F9B65A400E8FC72 /* Utils */,
 			);
 			path = "Data Access Layer";
 			sourceTree = "<group>";
@@ -200,6 +208,15 @@
 				63B7B1DD1F9B561D00E8FC72 /* RepoTests.swift */,
 			);
 			path = Domain;
+			sourceTree = "<group>";
+		};
+		63B7B1E31F9B65A400E8FC72 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				63B7B1E41F9B65B300E8FC72 /* FileNetworkSession.swift */,
+				63B7B1E81F9B6A9000E8FC72 /* Difference.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -328,7 +345,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				63B7B1D61F9B514700E8FC72 /* APIRepoSearchRepositoryTests.swift in Sources */,
+				63B7B1E51F9B65B300E8FC72 /* FileNetworkSession.swift in Sources */,
 				63B7B1DE1F9B561D00E8FC72 /* RepoTests.swift in Sources */,
+				63B7B1E71F9B67E400E8FC72 /* NetworkSessionTests.swift in Sources */,
+				63B7B1E91F9B6A9000E8FC72 /* Difference.swift in Sources */,
 				63B7B1E21F9B5B7100E8FC72 /* WebLinkingTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
