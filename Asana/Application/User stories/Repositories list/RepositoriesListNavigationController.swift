@@ -10,4 +10,16 @@ import UIKit
 
 class RepositoriesListNavigationController: UINavigationController {
 
+    weak var repositoriesList: RepositoriesListController?
+    var repositoriesListDataProvider: RepositoriesListDataProvider?
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if repositoriesList == nil {
+            repositoriesList = viewControllers[0] as? RepositoriesListController
+            repositoriesList?.dataProvider = repositoriesListDataProvider
+        }
+    }
+
 }

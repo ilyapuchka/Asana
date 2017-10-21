@@ -11,6 +11,7 @@ import UIKit
 class RepositoriesListController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
+    var dataProvider: RepositoriesListDataProvider?
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 0
@@ -22,3 +23,12 @@ class RepositoriesListController: UIViewController, UITableViewDelegate, UITable
     
 }
 
+class RepositoriesListDataProvider {
+    
+    let searchService: RepoSearchService
+    
+    init(searchService: RepoSearchService) {
+        self.searchService = searchService
+    }
+    
+}

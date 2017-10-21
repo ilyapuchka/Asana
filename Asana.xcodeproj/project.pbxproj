@@ -35,6 +35,7 @@
 		63B7B1F01F9B75C100E8FC72 /* Rswift.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 63B7B1EC1F9B754600E8FC72 /* Rswift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		63B7B1F41F9B767A00E8FC72 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B7B1F31F9B767900E8FC72 /* R.generated.swift */; };
 		63B7B1F81F9B770500E8FC72 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B7B1F71F9B770500E8FC72 /* R.generated.swift */; };
+		63B7B1FB1F9B775700E8FC72 /* SegueManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B7B1FA1F9B775700E8FC72 /* SegueManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +92,7 @@
 		63B7B1EC1F9B754600E8FC72 /* Rswift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Rswift.framework; path = Carthage/Build/iOS/Rswift.framework; sourceTree = "<group>"; };
 		63B7B1F31F9B767900E8FC72 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		63B7B1F71F9B770500E8FC72 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
+		63B7B1FA1F9B775700E8FC72 /* SegueManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +165,7 @@
 				637314881F9B48B800B18FE0 /* AppDelegate.swift */,
 				63B7B1C41F9B4B8900E8FC72 /* RootViewController.swift */,
 				637314AD1F9B4A3E00B18FE0 /* Main.storyboard */,
+				63B7B1F91F9B774B00E8FC72 /* Utils */,
 				637314A91F9B495F00B18FE0 /* User stories */,
 			);
 			path = Application;
@@ -267,6 +270,14 @@
 				63B7B1F71F9B770500E8FC72 /* R.generated.swift */,
 			);
 			path = Generated;
+			sourceTree = "<group>";
+		};
+		63B7B1F91F9B774B00E8FC72 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				63B7B1FA1F9B775700E8FC72 /* SegueManager.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -434,6 +445,7 @@
 				63B7B1F81F9B770500E8FC72 /* R.generated.swift in Sources */,
 				63B7B1CB1F9B4C9700E8FC72 /* RepoSearchService.swift in Sources */,
 				63B7B1CD1F9B4CAE00E8FC72 /* RepoSearchRepository.swift in Sources */,
+				63B7B1FB1F9B775700E8FC72 /* SegueManager.swift in Sources */,
 				63B7B1C51F9B4B8900E8FC72 /* RootViewController.swift in Sources */,
 				63B7B1D81F9B549800E8FC72 /* RepoOwner.swift in Sources */,
 				63B7B1CF1F9B4CDF00E8FC72 /* APIRepoSearchRepository.swift in Sources */,
