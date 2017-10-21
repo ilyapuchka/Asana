@@ -8,11 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		637314891F9B48B800B18FE0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637314881F9B48B800B18FE0 /* AppDelegate.swift */; };
-		6373148B1F9B48B800B18FE0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6373148A1F9B48B800B18FE0 /* ViewController.swift */; };
-		6373148E1F9B48B800B18FE0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6373148C1F9B48B800B18FE0 /* Main.storyboard */; };
+		6373148B1F9B48B800B18FE0 /* RepositoriesListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6373148A1F9B48B800B18FE0 /* RepositoriesListController.swift */; };
+		6373148E1F9B48B800B18FE0 /* RepositoriesList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6373148C1F9B48B800B18FE0 /* RepositoriesList.storyboard */; };
 		637314901F9B48B800B18FE0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6373148F1F9B48B800B18FE0 /* Assets.xcassets */; };
 		637314931F9B48B800B18FE0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 637314911F9B48B800B18FE0 /* LaunchScreen.storyboard */; };
-		6373149E1F9B48B800B18FE0 /* AsanaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6373149D1F9B48B800B18FE0 /* AsanaTests.swift */; };
+		637314AC1F9B49E000B18FE0 /* RepositoriesListNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637314AB1F9B49E000B18FE0 /* RepositoriesListNavigationController.swift */; };
+		637314AE1F9B4A3E00B18FE0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 637314AD1F9B4A3E00B18FE0 /* Main.storyboard */; };
+		63B7B1C51F9B4B8900E8FC72 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B7B1C41F9B4B8900E8FC72 /* RootViewController.swift */; };
+		63B7B1C91F9B4C7200E8FC72 /* Repo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B7B1C81F9B4C7200E8FC72 /* Repo.swift */; };
+		63B7B1CB1F9B4C9700E8FC72 /* RepoSearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B7B1CA1F9B4C9700E8FC72 /* RepoSearchService.swift */; };
+		63B7B1CD1F9B4CAE00E8FC72 /* RepoSearchRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B7B1CC1F9B4CAE00E8FC72 /* RepoSearchRepository.swift */; };
+		63B7B1CF1F9B4CDF00E8FC72 /* APIRepoSearchRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B7B1CE1F9B4CDF00E8FC72 /* APIRepoSearchRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,14 +34,20 @@
 /* Begin PBXFileReference section */
 		637314851F9B48B800B18FE0 /* Asana.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Asana.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		637314881F9B48B800B18FE0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		6373148A1F9B48B800B18FE0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		6373148D1F9B48B800B18FE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6373148A1F9B48B800B18FE0 /* RepositoriesListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesListController.swift; sourceTree = "<group>"; };
+		6373148D1F9B48B800B18FE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/RepositoriesList.storyboard; sourceTree = "<group>"; };
 		6373148F1F9B48B800B18FE0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		637314921F9B48B800B18FE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		637314941F9B48B800B18FE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		637314991F9B48B800B18FE0 /* AsanaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AsanaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		6373149D1F9B48B800B18FE0 /* AsanaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsanaTests.swift; sourceTree = "<group>"; };
 		6373149F1F9B48B800B18FE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		637314AB1F9B49E000B18FE0 /* RepositoriesListNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesListNavigationController.swift; sourceTree = "<group>"; };
+		637314AD1F9B4A3E00B18FE0 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		63B7B1C41F9B4B8900E8FC72 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		63B7B1C81F9B4C7200E8FC72 /* Repo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repo.swift; sourceTree = "<group>"; };
+		63B7B1CA1F9B4C9700E8FC72 /* RepoSearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoSearchService.swift; sourceTree = "<group>"; };
+		63B7B1CC1F9B4CAE00E8FC72 /* RepoSearchRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoSearchRepository.swift; sourceTree = "<group>"; };
+		63B7B1CE1F9B4CDF00E8FC72 /* APIRepoSearchRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRepoSearchRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,9 +89,9 @@
 		637314871F9B48B800B18FE0 /* Asana */ = {
 			isa = PBXGroup;
 			children = (
-				637314881F9B48B800B18FE0 /* AppDelegate.swift */,
-				6373148A1F9B48B800B18FE0 /* ViewController.swift */,
-				6373148C1F9B48B800B18FE0 /* Main.storyboard */,
+				63B7B1C71F9B4C5700E8FC72 /* Data Access Layer */,
+				63B7B1C61F9B4C4A00E8FC72 /* Domain */,
+				637314A81F9B494D00B18FE0 /* Application */,
 				6373148F1F9B48B800B18FE0 /* Assets.xcassets */,
 				637314911F9B48B800B18FE0 /* LaunchScreen.storyboard */,
 				637314941F9B48B800B18FE0 /* Info.plist */,
@@ -90,10 +102,56 @@
 		6373149C1F9B48B800B18FE0 /* AsanaTests */ = {
 			isa = PBXGroup;
 			children = (
-				6373149D1F9B48B800B18FE0 /* AsanaTests.swift */,
 				6373149F1F9B48B800B18FE0 /* Info.plist */,
 			);
 			path = AsanaTests;
+			sourceTree = "<group>";
+		};
+		637314A81F9B494D00B18FE0 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				637314881F9B48B800B18FE0 /* AppDelegate.swift */,
+				63B7B1C41F9B4B8900E8FC72 /* RootViewController.swift */,
+				637314AD1F9B4A3E00B18FE0 /* Main.storyboard */,
+				637314A91F9B495F00B18FE0 /* User stories */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		637314A91F9B495F00B18FE0 /* User stories */ = {
+			isa = PBXGroup;
+			children = (
+				637314AA1F9B496E00B18FE0 /* Repositories list */,
+			);
+			path = "User stories";
+			sourceTree = "<group>";
+		};
+		637314AA1F9B496E00B18FE0 /* Repositories list */ = {
+			isa = PBXGroup;
+			children = (
+				6373148A1F9B48B800B18FE0 /* RepositoriesListController.swift */,
+				637314AB1F9B49E000B18FE0 /* RepositoriesListNavigationController.swift */,
+				6373148C1F9B48B800B18FE0 /* RepositoriesList.storyboard */,
+			);
+			path = "Repositories list";
+			sourceTree = "<group>";
+		};
+		63B7B1C61F9B4C4A00E8FC72 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				63B7B1C81F9B4C7200E8FC72 /* Repo.swift */,
+				63B7B1CA1F9B4C9700E8FC72 /* RepoSearchService.swift */,
+				63B7B1CC1F9B4CAE00E8FC72 /* RepoSearchRepository.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		63B7B1C71F9B4C5700E8FC72 /* Data Access Layer */ = {
+			isa = PBXGroup;
+			children = (
+				63B7B1CE1F9B4CDF00E8FC72 /* APIRepoSearchRepository.swift */,
+			);
+			path = "Data Access Layer";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,7 +239,8 @@
 			files = (
 				637314931F9B48B800B18FE0 /* LaunchScreen.storyboard in Resources */,
 				637314901F9B48B800B18FE0 /* Assets.xcassets in Resources */,
-				6373148E1F9B48B800B18FE0 /* Main.storyboard in Resources */,
+				6373148E1F9B48B800B18FE0 /* RepositoriesList.storyboard in Resources */,
+				637314AE1F9B4A3E00B18FE0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,7 +258,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6373148B1F9B48B800B18FE0 /* ViewController.swift in Sources */,
+				6373148B1F9B48B800B18FE0 /* RepositoriesListController.swift in Sources */,
+				637314AC1F9B49E000B18FE0 /* RepositoriesListNavigationController.swift in Sources */,
+				63B7B1C91F9B4C7200E8FC72 /* Repo.swift in Sources */,
+				63B7B1CB1F9B4C9700E8FC72 /* RepoSearchService.swift in Sources */,
+				63B7B1CD1F9B4CAE00E8FC72 /* RepoSearchRepository.swift in Sources */,
+				63B7B1C51F9B4B8900E8FC72 /* RootViewController.swift in Sources */,
+				63B7B1CF1F9B4CDF00E8FC72 /* APIRepoSearchRepository.swift in Sources */,
 				637314891F9B48B800B18FE0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -208,7 +273,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6373149E1F9B48B800B18FE0 /* AsanaTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -223,12 +287,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		6373148C1F9B48B800B18FE0 /* Main.storyboard */ = {
+		6373148C1F9B48B800B18FE0 /* RepositoriesList.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				6373148D1F9B48B800B18FE0 /* Base */,
 			);
-			name = Main.storyboard;
+			name = RepositoriesList.storyboard;
 			sourceTree = "<group>";
 		};
 		637314911F9B48B800B18FE0 /* LaunchScreen.storyboard */ = {
@@ -356,6 +420,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4LTD6LARKC;
 				INFOPLIST_FILE = Asana/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ilya.puchka.Asana;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -371,6 +436,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4LTD6LARKC;
 				INFOPLIST_FILE = Asana/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ilya.puchka.Asana;
 				PRODUCT_NAME = "$(TARGET_NAME)";
