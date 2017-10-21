@@ -28,8 +28,42 @@ struct RepoSearchQuery {
         self.sort = sort
         self.order = order
     }
+    
+}
+
+struct RepoSearchResult {
+    let response: HTTPURLResponse?
+    let repos: [Repo]?
+    let error: Error?
+    
+    enum Pagination: String {
+        case next, last
+    }
+
+    let pages: [Pagination: URL]
+
+    init(response: HTTPURLResponse?, repos: [Repo]?, error: Error?) {
+        self.response = response
+        self.repos = repos
+        self.error = error
+        
+        var _pages = [Pagination: URL]()
+        self.response?.links.forEach({ (key, value) in
+            if let pageKey = Pagination(rawValue: key) {
+                _pages[pageKey] = value
+            }
+        })
+        self.pages = _pages
+    }
+
+    var isLastPage: Bool? {
+        guard let currentURL = response?.url else { return nil }
+        guard let lastPage = pages[.last] else { return nil }
+        return lastPage == currentURL
+    }
 }
 
 protocol RepoSearchRepository {
-    func getRepositories(query: RepoSearchQuery, completion: @escaping ([Repo]?, Error?) -> Void)
+    func getRepositories(query: RepoSearchQuery, completion: @escaping (RepoSearchResult) -> Void)
+    func getRepositories(url: URL, completion: @escaping (RepoSearchResult) -> Void)
 }

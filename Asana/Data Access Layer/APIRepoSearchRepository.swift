@@ -28,9 +28,16 @@ class APIRepoSearchRepository: RepoSearchRepository {
         self.networkSession = networkSession
     }
     
-    func getRepositories(query: RepoSearchQuery, completion: @escaping ([Repo]?, Error?) -> Void) {
-        networkSession.request(.repoSearchRequest(query: query)) { (repos, _, _, error) in
-            completion(repos, error)
+    func getRepositories(query: RepoSearchQuery, completion: @escaping (RepoSearchResult) -> Void) {
+        networkSession.request(.repoSearchRequest(query: query)) { (repos, _, response, error) in
+            completion(RepoSearchResult(response: response, repos: repos, error: error))
         }
     }
+    
+    func getRepositories(url: URL, completion: @escaping (RepoSearchResult) -> Void) {
+        networkSession.request(.init(url: url)) { (repos, _, response, error) in
+            completion(RepoSearchResult(response: response, repos: repos, error: error))
+        }
+    }
+
 }
