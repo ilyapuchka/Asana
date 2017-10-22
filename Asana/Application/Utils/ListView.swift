@@ -9,13 +9,11 @@
 import UIKit
 import Rswift
 
-protocol UpdatableListCell {
+protocol ListCell {
     associatedtype ViewModel
     func update(withViewModel: ViewModel) -> Void
-}
-
-protocol ListCell {
-    associatedtype ReuseableType: UpdatableListCell
+    
+    associatedtype ReuseableType
     static var reuseIdentifier: ReuseIdentifier<ReuseableType> { get }
     
     associatedtype NibType: NibResourceType
@@ -37,7 +35,23 @@ protocol ListView: UITableViewDataSource, UITableViewDelegate {
 }
 
 extension ListView where
-    ViewModel.Cell.ReuseableType.ViewModel == ViewModel.Item,
+    ViewModel.Cell.ViewModel == ViewModel.Item,
+    ViewModel.Cell.ReuseableType: UITableViewCell
+{
+    
+    func numberOfRows() -> Int {
+        return model.numberOfRows()
+    }
+    
+    func cellForRow(at indexPath: IndexPath) -> ViewModel.Cell {
+        let cell: ViewModel.Cell = tableView.dequeueReusableCell(for: indexPath)
+        cell.update(withViewModel: model.item(at: indexPath.row)!)
+        return cell
+    }
+    
+}
+
+extension ListView where
     ViewModel.Cell.ReuseableType: UITableViewCell,
     ViewModel.Cell.NibType: ReuseIdentifierType,
     ViewModel.Cell.NibType.ReusableType == ViewModel.Cell.ReuseableType
@@ -47,15 +61,16 @@ extension ListView where
         tableView?.register(ViewModel.Cell.nib)
     }
     
-    func numberOfRows() -> Int {
-        return model.numberOfRows()
-    }
+}
+
+extension UITableView {
     
-    func cellForRow(at indexPath: IndexPath) -> ViewModel.Cell.ReuseableType {
-        let reuseId = ViewModel.Cell.reuseIdentifier
-        let cell = tableView.dequeueReusableCell(withIdentifier: reuseId, for: indexPath)!
-        cell.update(withViewModel: model.item(at: indexPath.row)!)
-        return cell
+    func dequeueReusableCell<Cell>(for indexPath: IndexPath) -> Cell
+        where
+        Cell: ListCell,
+        Cell.ReuseableType: UITableViewCell
+    {
+        return dequeueReusableCell(withIdentifier: Cell.reuseIdentifier, for: indexPath) as! Cell
     }
     
 }

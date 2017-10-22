@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RepositoriesListCell: UITableViewCell, ListCell, UpdatableListCell {
+class RepositoriesListCell: UITableViewCell, ListCell {
 
     static let reuseIdentifier = R.reuseIdentifier.repositoriesListCell
     static let nib = R.nib.repositoriesListCell
