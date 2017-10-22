@@ -17,6 +17,7 @@ class RepositoriesListController: UIViewController, UITableViewDelegate, UITable
             registerReusableViews()
             tableView.estimatedRowHeight = 50
             tableView.rowHeight = UITableViewAutomaticDimension
+            tableView.tableFooterView = UIView()
         }
     }
 
@@ -33,6 +34,15 @@ class RepositoriesListController: UIViewController, UITableViewDelegate, UITable
     }
 
     var keyboardObservers: [Any] = []
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // fix for invalid initial content offset on iPhone 5
+        DispatchQueue.main.async {
+            self.tableView.contentOffset = .zero
+        }
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
