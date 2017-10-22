@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		630013B81F9CB9EC00C68B29 /* KeyboardObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630013B71F9CB9EC00C68B29 /* KeyboardObserver.swift */; };
 		630AF3901F9B92DC000AF79F /* Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630AF38F1F9B92DC000AF79F /* Promise.swift */; };
 		6372DE471F9B7B62007541F8 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6372DE461F9B7B62007541F8 /* ListView.swift */; };
 		6372DE4A1F9B7C3E007541F8 /* RepositoriesListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6372DE481F9B7C3E007541F8 /* RepositoriesListCell.swift */; };
@@ -67,6 +68,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		630013B71F9CB9EC00C68B29 /* KeyboardObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardObserver.swift; sourceTree = "<group>"; };
 		630AF38F1F9B92DC000AF79F /* Promise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Promise.swift; sourceTree = "<group>"; };
 		6372DE461F9B7B62007541F8 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		6372DE481F9B7C3E007541F8 /* RepositoriesListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesListCell.swift; sourceTree = "<group>"; };
@@ -299,6 +301,7 @@
 				63B7B1FA1F9B775700E8FC72 /* SegueManager.swift */,
 				6372DE461F9B7B62007541F8 /* ListView.swift */,
 				63A851F21F9B9CBE00A25437 /* ImageLoader.swift */,
+				630013B71F9CB9EC00C68B29 /* KeyboardObserver.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -467,6 +470,7 @@
 				63B7B1C91F9B4C7200E8FC72 /* Repo.swift in Sources */,
 				63B7B1D11F9B4ECD00E8FC72 /* RequestBuilder.swift in Sources */,
 				63B7B1E01F9B58B800E8FC72 /* WebLinking.swift in Sources */,
+				630013B81F9CB9EC00C68B29 /* KeyboardObserver.swift in Sources */,
 				63B7B1F81F9B770500E8FC72 /* R.generated.swift in Sources */,
 				63B7B1CB1F9B4C9700E8FC72 /* RepoSearchService.swift in Sources */,
 				6372DE4A1F9B7C3E007541F8 /* RepositoriesListCell.swift in Sources */,

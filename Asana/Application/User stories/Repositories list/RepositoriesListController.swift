@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RepositoriesListController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class RepositoriesListController: UIViewController, UITableViewDelegate, UITableViewDataSource, KeyboardObserver {
 
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var loadingView: UIActivityIndicatorView!
@@ -32,6 +32,19 @@ class RepositoriesListController: UIViewController, UITableViewDelegate, UITable
         }
     }
 
+    var keyboardObservers: [Any] = []
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        startKeyboardObserving(in: tableView)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        stopKeyboardObserving()
+    }
 }
 
 extension RepositoriesListController: ListView {
