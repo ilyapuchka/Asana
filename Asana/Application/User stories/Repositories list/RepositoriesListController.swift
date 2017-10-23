@@ -29,7 +29,6 @@ class RepositoriesListController: UIViewController, UITableViewDelegate, UITable
             } else {
                 loadingView?.stopAnimating()
             }
-            tableView?.reloadData()
         }
     }
 
@@ -54,6 +53,63 @@ class RepositoriesListController: UIViewController, UITableViewDelegate, UITable
         super.viewWillDisappear(animated)
         
         stopKeyboardObserving()
+    }
+    
+    enum InfiniteScrollingState {
+        case stopped, loading, triggered
+        static var threshold: CGFloat { return 40 }
+    }
+
+    private var infiniteScrollingState: InfiniteScrollingState = .stopped {
+        didSet {
+            switch infiniteScrollingState {
+            case .loading:
+                loadMore() { [weak self] in
+                    self?.infiniteScrollingState = .stopped
+                }
+            case .triggered:
+                () // TODO: add "loading more" indicator
+            case .stopped:
+                () // TODO: remove "loading more" indicator
+            }
+        }
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard !model.isEmpty && model.hasMoreResults,
+            infiniteScrollingState != .loading
+            else { return }
+        
+        let contentHeight = scrollView.contentSize.height
+        let threshold = contentHeight - scrollView.bounds.size.height + InfiniteScrollingState.threshold
+        
+        if infiniteScrollingState == .triggered {
+            infiniteScrollingState = .loading
+        } else if scrollView.contentOffset.y > threshold && infiniteScrollingState == .stopped && scrollView.isDragging {
+            infiniteScrollingState = .triggered
+        } else if scrollView.contentOffset.y < threshold && infiniteScrollingState == .triggered {
+            infiniteScrollingState = .stopped
+        }
+    }
+    
+    func loadMore(_ completion: @escaping () -> Void) {
+        guard let dataProvider = dataProvider, !model.isEmpty else { return }
+
+        dataProvider.getMoreRepositories { [weak self] (moreRepos, error) in
+            defer { completion() }
+            guard let moreRepos = moreRepos else { return }
+            self?.didLoadMore(repos: moreRepos)
+        }
+    }
+    
+    func didLoadMore(repos moreRepos: RepositoriesListViewModel) {
+        tableView.beginUpdates()
+        let indexPaths = moreRepos.repos.indices.map({ (index) in
+            IndexPath(row: model.numberOfRows() + index - 1, section: 0)
+        })
+        tableView.insertRows(at: indexPaths, with: .none)
+        model = model + moreRepos
+        tableView.endUpdates()
     }
 }
 
@@ -85,6 +141,7 @@ extension RepositoriesListController: UISearchBarDelegate {
         dataProvider?.getRepositories(query: RepoSearchQuery(query: query), completion: { [weak self] (repos, error) in
             if let repos = repos {
                 self?.model = repos
+                self?.tableView.reloadData()
             }
         })
     }
@@ -95,12 +152,14 @@ struct RepositoriesListViewModel: ListViewModel {
     typealias Item = RepositoriesListCellViewModel
     typealias Cell = RepositoriesListCell
 
+    private let result: RepoSearchResult?
     let repos: [RepositoriesListCellViewModel]
     let pages: RepoSearchResult.Pages?
     var isLoading: Bool = false
     var isLoadingMore: Bool = false
     
     init(repos: RepoSearchResult? = nil) {
+        self.result = repos
         self.repos = repos?.repos?.map(RepositoriesListCellViewModel.init(repo:)) ?? []
         self.pages = repos?.pages
     }
@@ -116,6 +175,18 @@ struct RepositoriesListViewModel: ListViewModel {
 
     var isEmpty: Bool {
         return repos.isEmpty
+    }
+    
+    var hasMoreResults: Bool {
+        return pages?[.next] != nil
+    }
+    
+    static func +(lhs: RepositoriesListViewModel, rhs: RepositoriesListViewModel) -> RepositoriesListViewModel {
+        if let lhsResult = lhs.result, let rhsResult = rhs.result {
+            return RepositoriesListViewModel(repos: lhsResult + rhsResult)
+        } else {
+            return RepositoriesListViewModel(repos: lhs.result ?? rhs.result)
+        }
     }
     
 }
@@ -153,8 +224,8 @@ class RepositoriesListDataProvider {
                 completion(nil, moreResults.error)
                 return
             }
-            self?.result = result
-            completion(RepositoriesListViewModel(repos: result + moreResults), moreResults.error)
+            self?.result = result + moreResults
+            completion(RepositoriesListViewModel(repos: moreResults), moreResults.error)
         }
     }
     

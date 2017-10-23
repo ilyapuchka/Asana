@@ -14,6 +14,7 @@ protocol NetworkSession {
 
 extension URLSession: NetworkSession {
     func request<T: Codable>(_ request: URLRequest, completion: @escaping (T?, Data?, HTTPURLResponse?, Error?) -> Void) {
+        print(request.url!)
         dataTask(with: request, completionHandler: dataTaskCompletionHandler(completion)).resume()
     }
     
