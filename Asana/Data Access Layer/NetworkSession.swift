@@ -9,16 +9,15 @@
 import Foundation
 
 protocol NetworkSession {
-    func request<T: Codable>(_ request: URLRequest, completion: @escaping (T?, Data?, HTTPURLResponse?, Error?) -> Void)
+    func request<T: Decodable>(_ request: URLRequest, completion: @escaping (T?, Data?, HTTPURLResponse?, Error?) -> Void)
 }
 
 extension URLSession: NetworkSession {
-    func request<T: Codable>(_ request: URLRequest, completion: @escaping (T?, Data?, HTTPURLResponse?, Error?) -> Void) {
-        print(request.url!)
+    func request<T: Decodable>(_ request: URLRequest, completion: @escaping (T?, Data?, HTTPURLResponse?, Error?) -> Void) {
         dataTask(with: request, completionHandler: dataTaskCompletionHandler(completion)).resume()
     }
     
-    func dataTaskCompletionHandler<T: Codable>(_ completion: @escaping (T?, Data?, HTTPURLResponse?, Error?) -> Void) ->(Data?, URLResponse?, Error?) -> Void {
+    func dataTaskCompletionHandler<T: Decodable>(_ completion: @escaping (T?, Data?, HTTPURLResponse?, Error?) -> Void) ->(Data?, URLResponse?, Error?) -> Void {
         return { (data, response, error) in
             if let data = data {
                 do {

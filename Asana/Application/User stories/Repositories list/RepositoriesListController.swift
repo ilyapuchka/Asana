@@ -142,6 +142,8 @@ extension RepositoriesListController: UISearchBarDelegate {
             if let repos = repos {
                 self?.model = repos
                 self?.tableView.reloadData()
+            } else {
+                self?.model.isLoading = false
             }
         })
     }

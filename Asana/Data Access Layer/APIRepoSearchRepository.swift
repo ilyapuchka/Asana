@@ -68,6 +68,6 @@ extension RepoSearchResult {
     
 }
 
-struct Repos: Codable {
+struct Repos: Decodable {
     let items: [Repo]
 }

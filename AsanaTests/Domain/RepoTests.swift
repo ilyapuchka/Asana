@@ -12,7 +12,7 @@ import Rswift
 
 class RepoTests: XCTestCase {
     
-    func testRepoIsCodable() throws {
+    func testRepoIsDecodable() throws {
         let data = try Data(resource: R.file.repoJson)
         let repo = try JSONDecoder().decode(Repo.self, from: data)
         
