@@ -39,9 +39,9 @@
 		63B7B1ED1F9B754600E8FC72 /* Rswift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63B7B1EC1F9B754600E8FC72 /* Rswift.framework */; };
 		63B7B1EE1F9B755A00E8FC72 /* Rswift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63B7B1EC1F9B754600E8FC72 /* Rswift.framework */; };
 		63B7B1F01F9B75C100E8FC72 /* Rswift.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 63B7B1EC1F9B754600E8FC72 /* Rswift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		63B7B1F41F9B767A00E8FC72 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B7B1F31F9B767900E8FC72 /* R.generated.swift */; };
 		63B7B1F81F9B770500E8FC72 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B7B1F71F9B770500E8FC72 /* R.generated.swift */; };
 		63B7B1FB1F9B775700E8FC72 /* SegueManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B7B1FA1F9B775700E8FC72 /* SegueManager.swift */; };
+		643620ED1F9DF462007B04FB /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643620EB1F9DF462007B04FB /* R.generated.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,9 +102,9 @@
 		63B7B1E61F9B67E400E8FC72 /* NetworkSessionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSessionTests.swift; sourceTree = "<group>"; };
 		63B7B1E81F9B6A9000E8FC72 /* Difference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Difference.swift; sourceTree = "<group>"; };
 		63B7B1EC1F9B754600E8FC72 /* Rswift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Rswift.framework; path = Carthage/Build/iOS/Rswift.framework; sourceTree = "<group>"; };
-		63B7B1F31F9B767900E8FC72 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		63B7B1F71F9B770500E8FC72 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		63B7B1FA1F9B775700E8FC72 /* SegueManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueManager.swift; sourceTree = "<group>"; };
+		643620EB1F9DF462007B04FB /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,7 +172,7 @@
 		6373149C1F9B48B800B18FE0 /* AsanaTests */ = {
 			isa = PBXGroup;
 			children = (
-				63B7B1F21F9B767900E8FC72 /* Generated */,
+				643620E91F9DF462007B04FB /* Generated */,
 				63B7B1DC1F9B560F00E8FC72 /* Domain */,
 				63B7B1D41F9B512C00E8FC72 /* Data Access Layer */,
 				6373149F1F9B48B800B18FE0 /* Info.plist */,
@@ -279,14 +279,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		63B7B1F21F9B767900E8FC72 /* Generated */ = {
-			isa = PBXGroup;
-			children = (
-				63B7B1F31F9B767900E8FC72 /* R.generated.swift */,
-			);
-			path = Generated;
-			sourceTree = "<group>";
-		};
 		63B7B1F61F9B770500E8FC72 /* Generated */ = {
 			isa = PBXGroup;
 			children = (
@@ -304,6 +296,14 @@
 				630013B71F9CB9EC00C68B29 /* KeyboardObserver.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		643620E91F9DF462007B04FB /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				643620EB1F9DF462007B04FB /* R.generated.swift */,
+			);
+			path = Generated;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -490,7 +490,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				63B7B1D61F9B514700E8FC72 /* APIRepoSearchRepositoryTests.swift in Sources */,
-				63B7B1F41F9B767A00E8FC72 /* R.generated.swift in Sources */,
+				643620ED1F9DF462007B04FB /* R.generated.swift in Sources */,
 				63B7B1E51F9B65B300E8FC72 /* FileNetworkSession.swift in Sources */,
 				63B7B1DE1F9B561D00E8FC72 /* RepoTests.swift in Sources */,
 				63B7B1E71F9B67E400E8FC72 /* NetworkSessionTests.swift in Sources */,
